@@ -1,0 +1,22 @@
+function OnStart()
+{
+    // Pfad zur vorhandenen APK-Datei
+    var src = "/sdcard/Download/Netboom.apk";
+    // Zielpfad (z.B. in einen neuen Ordner)
+    var dest = "/sdcard/MyFolder/Netboom_copy.apk";
+
+    // Datei lesen
+    var data = app.ReadFile(src);
+
+    // Prüfen, ob Datei erfolgreich gelesen wurde
+    if(data)
+    {
+        // Datei schreiben (kopieren)
+        app.WriteFile(dest, data);
+        app.Alert("APK wurde kopiert nach:\n" + dest);
+    }
+    else
+    {
+        app.Alert("Fehler: Datei nicht gefunden!");
+    }
+}
